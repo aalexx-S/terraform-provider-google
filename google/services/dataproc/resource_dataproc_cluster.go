@@ -2882,7 +2882,7 @@ func flattenClusterConfig(d *schema.ResourceData, cfg *dataproc.ClusterConfig) (
 }
 
 func flattenSecurityConfig(d *schema.ResourceData, sc *dataproc.SecurityConfig) []map[string]interface{} {
-	if sc == nil {
+	if sc == nil || sc.KerberosConfig == nil {
 		return nil
 	}
 	data := map[string]interface{}{
